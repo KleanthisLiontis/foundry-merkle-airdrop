@@ -4,9 +4,9 @@ pragma solidity ^0.8.25;
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
-contract BakelToken is ERC20, Ownable{
+contract RewardToken is ERC20, Ownable{
 
-    constructor() ERC20("Bagel","Bagel") Ownable(msg.sender){
+    constructor() ERC20("RewardToken","RW") Ownable(msg.sender){
     } 
 
     function mint(address to, uint256 amount) external onlyOwner{

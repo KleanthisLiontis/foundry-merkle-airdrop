@@ -25,7 +25,7 @@ contract MerkleAirdrop {
     }
 
     function claim(address account, uint256 amountToClaim, bytes32[] calldata merkleProof) external {
-        if(s_alreadyClaimed[account]){
+        if (s_alreadyClaimed[account]) {
             revert MerkleAirdrop__UserAlreadyReedemed();
         }
         //calculate the hash using the account and amount
@@ -35,8 +35,16 @@ contract MerkleAirdrop {
         if (!MerkleProof.verify(merkleProof, i_merkleRoot, leaf)) {
             revert MerkleAirdrop__NotInMerkleProof();
         }
-        emit Claim(account,amountToClaim);
+        emit Claim(account, amountToClaim);
         i_airdropToken.transfer(account, amountToClaim);
         s_alreadyClaimed[account] = true;
+    }
+
+    function getMerkelRoot() external view returns (bytes32) {
+        return i_merkleRoot;
+    }
+
+    function getAirdropToken() external view returns (IERC20) {
+        return i_airdropToken;
     }
 }

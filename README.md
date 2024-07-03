@@ -64,3 +64,8 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+### Commands to generate input for MerkelTree input and the proof
+```shell
+forge script script/GenerateInput.s.sol 
+forge script script/MakeMerkle.s.sol
+```
