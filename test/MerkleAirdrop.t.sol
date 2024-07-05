@@ -49,6 +49,7 @@ contract MerkleAirdropTest is Test, ZkSyncChainChecker {
 
         uint256 endingBalance = token.balanceOf(user);
         console.log("user endingBalance:", endingBalance);
+        console.log("user startingBalance:", startingBalance);
         assertEq(endingBalance - startingBalance, AMOUNT_TO_CLAIM);
     }
 }
