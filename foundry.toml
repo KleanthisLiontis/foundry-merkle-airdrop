@@ -11,5 +11,5 @@ remappings = [
 fs_permissions = [{ access = "read-write", path = "./" }]
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
 
-[dependencies]
+[profile.dependencies]
 zksync = "0.2"
